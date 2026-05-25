@@ -56,19 +56,25 @@ router.put('/:id', protect, adminOnly, async (req, res) => {
 // Delete category (admin only)
 router.delete('/:id', protect, adminOnly, async (req, res) => {
   try {
-    const category = await Category.findByIdAndUpdate(
-      req.params.id,
-      { isActive: false },
-      { new: true }
-    );
-    
+    const category = await Category.findByIdAndDelete(req.params.id);
+
     if (!category) {
-      return res.status(404).json({ success: false, message: 'ไม่พบหมวดหมู่' });
+      return res.status(404).json({
+        success: false,
+        message: 'ไม่พบหมวดหมู่'
+      });
     }
-    
-    res.json({ success: true, message: 'ลบหมวดหมู่สำเร็จ' });
+
+    res.json({
+      success: true,
+      message: 'ลบหมวดหมู่สำเร็จ'
+    });
+
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
   }
 });
 
