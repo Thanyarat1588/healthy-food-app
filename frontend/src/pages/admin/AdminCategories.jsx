@@ -56,7 +56,7 @@ export default function AdminCategories() {
     }
   };
 
-  const icons = ['🥗', '🍎', '🥩', '🌾', '🥤', '🥜', '🥦', '🍊', '🫐', '🥑', '🍋', '🧄'];
+  const icons = ['🥗', '🍎', '🥩', '🌾', '🥤', '🥜', '🥦', '🍊', '🥑', '🍋'];
 
   return (
     <div className="fade-in">
